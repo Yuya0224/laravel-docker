@@ -22,11 +22,7 @@ services:
           property: connectionString
       - key: DB_CONNECTION
         value: pgsql
-  - type: redis
-    name: redis-laravel-demo-prd
-    region: singapore
-    plan: Starter
-    ipAllowList: [] # only allow internal connections
+    autoDeploy: false
 
   # staging
   - type: web
@@ -51,6 +47,13 @@ services:
           property: connectionString
       - key: DB_CONNECTION
         value: pgsql
+    autoDeploy: false
+
+  - type: redis
+    name: redis-laravel-demo-prd
+    region: singapore
+    plan: Starter
+    ipAllowList: [] # only allow internal connections
 
   - type: redis
     name: redis-laravel-demo-stg
