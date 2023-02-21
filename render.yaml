@@ -1,33 +1,86 @@
 services:
+  # production
   - type: web
-    name: laravel-docker-demo
+    name: laravel-demo-prd
     env: docker
     dockerfilePath: Dockerfile
-    dockerCommand: /start.sh
+    dockerCommand: ./start.sh
     region: singapore
-    plan: free
+    plan: Starter
     branch: main
     envVars:
-      - fromGroup: laravel-demo
+      - fromGroup: laravel-demo-secrets-common
+      - fromGroup: laravel-demo-secrets-prd
       - key: DATABASE_URL
         fromDatabase:
-          name: postgresql-laravel-demo
+          name: postgresql-laravel-demo-prd
           property: connectionString
       - key: REDIS_URL
         fromService:
-          name: redis-laravel-demo
+          name: redis-laravel-demo-prd
           type: redis
           property: connectionString
   - type: redis
-    name: redis-laravel-demo
+    name: redis-laravel-demo-prd
     region: singapore
-    plan: free
+    plan: Starter
+    ipAllowList: [] # only allow internal connections
+
+  # staging
+  - type: web
+    name: laravel-demo-stg
+    env: docker
+    dockerfilePath: Dockerfile
+    dockerCommand: ./start.sh
+    region: singapore
+    plan: Free
+    branch: develop
+    envVars:
+      - fromGroup: laravel-demo-secrets-common
+      - fromGroup: laravel-demo-secrets-stg
+      - key: DATABASE_URL
+        fromDatabase:
+          name: postgresql-laravel-demo-stg
+          property: connectionString
+      - key: REDIS_URL
+        fromService:
+          name: redis-laravel-demo-stg
+          type: redis
+          property: connectionString
+
+  - type: redis
+    name: redis-laravel-demo-stg
+    region: singapore
+    plan: Free
     ipAllowList: [] # only allow internal connections
 
 databases:
-  - name: postgresql-laravel-demo
+  - name: postgresql-laravel-demo-prd
+    region: singapore
+    plan: Starter
+    ipAllowList: [] # only allow internal connections
+  - name: postgresql-laravel-demo-stg
     region: singapore
     plan: free
     ipAllowList:
       - source: 0.0.0.0/0
         description: everywhere
+
+envVarGroups:
+  # Common
+  - name: laravel-demo-secrets-common
+    envVars:
+      # - key: APP_KEY
+      #   sync: false
+
+  # Production
+  - name: laravel-demo-secrets-prd
+    envVars:
+      - key: APP_KEY
+        sync: false
+
+  # Staging
+  - name: laravel-demo-secrets-stg
+    envVars:
+      - key: APP_KEY
+        sync: false
