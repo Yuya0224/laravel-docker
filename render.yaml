@@ -4,7 +4,7 @@ services:
     name: laravel-demo-prd
     env: docker
     dockerfilePath: Dockerfile
-    dockerCommand: ./start.sh
+    dockerCommand: /start.sh
     region: singapore
     plan: Starter
     branch: main
@@ -20,6 +20,8 @@ services:
           name: redis-laravel-demo-prd
           type: redis
           property: connectionString
+      - key: DB_CONNECTION
+        value: pgsql
   - type: redis
     name: redis-laravel-demo-prd
     region: singapore
@@ -31,7 +33,7 @@ services:
     name: laravel-demo-stg
     env: docker
     dockerfilePath: Dockerfile
-    dockerCommand: ./start.sh
+    dockerCommand: /start.sh
     region: singapore
     plan: Free
     branch: develop
@@ -47,6 +49,8 @@ services:
           name: redis-laravel-demo-stg
           type: redis
           property: connectionString
+      - key: DB_CONNECTION
+        value: pgsql
 
   - type: redis
     name: redis-laravel-demo-stg
