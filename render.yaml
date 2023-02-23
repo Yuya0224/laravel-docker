@@ -83,14 +83,6 @@ envVarGroups:
 
   - name: laravel-demo-secrets-prd
     envVars:
-      - key: APP_NAME
-        sync: false
-      - key: APP_KEY
-        sync: false
-      - key: APP_URL
-        sync: false
-      - key: APP_FRONTEND_URL
-        sync: false
       - key: AWS_BUCKET
         sync: false
       - key: SESSION_COOKIE
@@ -112,14 +104,6 @@ envVarGroups:
 
   - name: laravel-demo-secrets-stg
     envVars:
-      - key: APP_NAME
-        sync: false
-      - key: APP_KEY
-        sync: false
-      - key: APP_URL
-        sync: false
-      - key: APP_FRONTEND_URL
-        sync: false
       - key: AWS_BUCKET
         sync: false
       - key: SESSION_COOKIE
