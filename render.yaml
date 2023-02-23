@@ -10,7 +10,6 @@ services:
     branch: main
     envVars:
       - fromGroup: laravel-demo-secrets-common
-      - fromGroup: laravel-demo-secrets-prd
       - key: DATABASE_URL
         fromDatabase:
           name: postgresql-laravel-demo-prd
@@ -35,7 +34,6 @@ services:
     branch: develop
     envVars:
       - fromGroup: laravel-demo-secrets-common
-      - fromGroup: laravel-demo-secrets-stg
       - key: DATABASE_URL
         fromDatabase:
           name: postgresql-laravel-demo-stg
@@ -80,9 +78,3 @@ envVarGroups:
         sync: false
       - key: DEFAULT_LANG
         sync: false
-
-  - name: laravel-demo-secrets-prd
-    envVars:
-
-  - name: laravel-demo-secrets-stg
-    envVars:
