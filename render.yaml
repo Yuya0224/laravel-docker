@@ -83,42 +83,6 @@ envVarGroups:
 
   - name: laravel-demo-secrets-prd
     envVars:
-      # - key: AWS_BUCKET
-      #   sync: false
-      # - key: SESSION_COOKIE
-      #   sync: false
-      # - key: STRIPE_KEY
-      #   sync: false
-      # - key: STRIPE_SECRET
-      #   sync: false
-      # - key: STRIPE_WEBHOOK_SECRET
-      #   sync: false
-      # - key: STRIPE_PLAN
-      #   sync: false
-      # - key: STRIPE_PLAN_NAME
-      #   sync: false
-      # - key: FCM_SECRET_KEY
-      #   sync: false
-      # - key: ENTRANCE_CURRENCY
-      #   sync: false
 
   - name: laravel-demo-secrets-stg
     envVars:
-      # - key: AWS_BUCKET
-      #   sync: false
-      # - key: SESSION_COOKIE
-      #   sync: false
-      # - key: STRIPE_KEY
-      #   sync: false
-      # - key: STRIPE_SECRET
-      #   sync: false
-      # - key: STRIPE_WEBHOOK_SECRET
-      #   sync: false
-      # - key: STRIPE_PLAN
-      #   sync: false
-      # - key: STRIPE_PLAN_NAME
-      #   sync: false
-      # - key: FCM_SECRET_KEY
-      #   sync: false
-      # - key: ENTRANCE_CURRENCY
-      #   sync: false
