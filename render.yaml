@@ -77,42 +77,42 @@ databases:
 
 envVarGroups:
   # Common
-  - name: laravel-demo-secrets-common
-    envVars:
-      - key: DEFAULT_TIMEZONE
-        sync: false
-      - key: DEFAULT_LANG
-        sync: false
+- name: laravel-demo-secrets-common
+  envVars:
+    - key: DEFAULT_TIMEZONE
+      sync: false
+    - key: DEFAULT_LANG
+      sync: false
 
   # Production
-  - name: laravel-demo-secrets-prd
-    envVars:
-      - key: APP_NAME
-        sync: false
-      - key: APP_KEY
-        sync: false
-      - key: APP_URL
-        sync: false
-      - key: APP_FRONTEND_URL
-        sync: false
-      - key: AWS_BUCKET
-        sync: false
-      - key: SESSION_COOKIE
-        sync: false
-      - key: STRIPE_KEY
-        sync: false
-      - key: STRIPE_SECRET
-        sync: false
-      - key: STRIPE_WEBHOOK_SECRET
-        sync: false
-      - key: STRIPE_PLAN
-        sync: false
-      - key: STRIPE_PLAN_NAME
-        sync: false
-      - key: FCM_SECRET_KEY
-        sync: false
-      - key: ENTRANCE_CURRENCY
-        sync: false
+- name: laravel-demo-secrets-prd
+  envVars:
+    - key: APP_NAME
+      sync: false
+    - key: APP_KEY
+      sync: false
+    - key: APP_URL
+      sync: false
+    - key: APP_FRONTEND_URL
+      sync: false
+    - key: AWS_BUCKET
+      sync: false
+    - key: SESSION_COOKIE
+      sync: false
+    - key: STRIPE_KEY
+      sync: false
+    - key: STRIPE_SECRET
+      sync: false
+    - key: STRIPE_WEBHOOK_SECRET
+      sync: false
+    - key: STRIPE_PLAN
+      sync: false
+    - key: STRIPE_PLAN_NAME
+      sync: false
+    - key: FCM_SECRET_KEY
+      sync: false
+    - key: ENTRANCE_CURRENCY
+      sync: false
 
   # Staging
   - name: laravel-demo-secrets-stg
