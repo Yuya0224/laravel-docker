@@ -1,25 +1,18 @@
 <?php
 
-namespace Database\Seeders;
+namespace App\Http\Controllers;
 
-use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Http\Request;
+use App\Models\User;
 
-
-class DatabaseSeeder extends Seeder
+class UserController extends Controller
 {
-    /**
-     * Seed the application's database.
-     *
-     * @return void
-     */
-    public function run()
-    {
-        DB::table('users')->insert([
-            'name' => 'admin',
-            'email' => 'admin@admin.com',
-            'password' => Hash::make('password1234'),
-        ]);
-    }
+
+  public function index()
+  {
+    $posts = User::all()->first();
+    return response()->json($posts);
+  }
 }
+
+// INSERT INTO テーブル名 (列名1, 列名2,...) VALUES (値1, 値2,...);
